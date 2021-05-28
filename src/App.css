@@ -1,7 +1,110 @@
-.App {
+html {
+  line-height: 1.15;
+  text-size-adjust: 100%;
+}
+
+body {
+  color: rgb(9, 30, 66);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.34;
+  background-color: rgb(255, 255, 255);
+  letter-spacing: 0.16px;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  font-style: normal;
+}
+
+.app-container {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
+  padding: 0px;
+}
+
+/** TOP NAVIGACE **/
+.navigation-top {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(223 225 230) 0px -1px 0px inset;
+  z-index: initial;
+}
+
+.navigation-top-logo {
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  display: flex;
+}
+
+.navigation-panel {
+  display: flex;
+  flex: 1 1 100%;
+  padding-left: 16px;
+}
+
+/** KONEC TOP NAVIGACE **/
+
+/** HLAVNI KONTEJNER **/
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex: 1 0 auto;
+}
+
+/** SIDEBAR **/
+.navigation-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 48px;
+  min-width: 48px;
+  background-color: rgb(255, 255, 255);
+  z-index: 900;
+  height: calc(100vh - 48px);
+  top: 0px;
+  left: 0px;
+  transition: all 0.5s ease 0s;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.siderbar-container {
+  width: 4.5rem;
+  height: 100%;
+}
+
+.sidebar-column {
+  height: 100%;
+}
+
+/** KONEC SIDEBAR **/
+
+.layout-content {
+  display: block;
+  flex: 1 0 auto;
+  overflow: hidden auto;
+  width: calc(100% - 48px);
+  height: calc(100vh - 48px);
+}
+
+.layout-wrapper {
+  position: relative;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 48px);
+    overflow: hidden auto;
 }
