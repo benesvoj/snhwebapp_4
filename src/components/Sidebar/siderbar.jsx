@@ -1,8 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 function Sidebar() {
     return (
         <div className="navigation-sidebar">
