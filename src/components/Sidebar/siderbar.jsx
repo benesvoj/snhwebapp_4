@@ -1,38 +1,69 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faCogs,
+    faList,
+    faUsers,
+    faTrophy
+} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+// import { propTypes } from 'react-bootstrap/esm/Image';
 
 function Sidebar() {
     return (
-        <div className="navigation-sidebar">
-            <div className="d-flex flex-column flex-shrink-0 sidebar-column">
-                <ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
-                    <li className="nav-item">
-                        <a href="/" className="nav-link align-items-center justify-content-center nav-link-top" title="Soutěže" data-bs-toggle="tooltip" data-bs-placement="right">
-                            <FontAwesomeIcon icon={['fas', 'trophy']} size="xs" />
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/oddily" className="nav-link align-items-center justify-content-center nav-link-top" title="Oddíly" data-bs-toggle="tooltip" data-bs-placement="right">
-                            <FontAwesomeIcon icon={['fas', 'address-book']} size="xs" />
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/" className="nav-link align-items-center justify-content-center nav-link-top" title="Členové" data-bs-toggle="tooltip" data-bs-placement="right">
-                            <FontAwesomeIcon icon={['fas', 'users']} size="xs" />
-                        </a>
-                        <ul className="submenu dropdown-menu">
-                            <li className="nav-item"><a className="nav-link" href="/">Submenu item 1 </a></li>
-                            <li className="nav-item"><a className="nav-link" href="/">Submenu item 2 </a></li>
-                            <li className="nav-item"><a className="nav-link" href="/">Submenu item 3 </a></li>
-                        </ul>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/" className="nav-link align-items-center justify-content-center nav-link-top" title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
-                            <FontAwesomeIcon icon={['fas', 'sitemap']} size="xs" />
-                        </a>
-                    </li>
-                </ul>
+        <div className="sidebar">
+            <div className="sidebar-position dropdown">
+                <FontAwesomeIcon icon={faTrophy} />
+                <span>Soutěže</span>
+                <div className="dropdown-content">
+                    <span className="submenu-title">Soutěže</span>
+                    <Link to="/overview-leagues">Přehled</Link>
+                    <a href="/">Celostatni souteze</a>
+                    <div className="dropdown-content-sub">
+                        <a href="/">1.liga muzi</a>
+                        <a href="/">1.liga zeny</a>
+                        <a href="/">2.liga muzi</a>
+                        <a href="/">MCR</a>
+                        <a href="/">PCR</a>
+                    </div>
+                    <a href="/">Oblasti</a>
+                    <div className="dropdown-content-sub">
+                        <a href="/">Jihomoravská</a>
+                        <a href="/">Severomoravská</a>
+                        <a href="/">Středočeská</a>
+                        <a href="/">Severočeská</a>
+                        <a href="/">Východočeská</a>
+                        <a href="/">Západočeská</a>
+                    </div>
+                    <a href="/">Turnaje</a>
+                </div>
             </div>
+            <div className="sidebar-position dropdown">
+                <FontAwesomeIcon icon={faList} />
+                <span>Oddíly</span>
+                <div className="dropdown-content">
+                    <span className="submenu-title">Oddíly</span>
+                    <Link to="/overview-teams">Přehled</Link>
+                    {/* <a href="/overview-teams">Přehled</a> */}
+                    <a href="/">Zalozit novy oddil</a>
+                    <a href="/">Oblasti</a>
+                </div>
+            </div>
+            <div className="sidebar-position dropdown">
+                <FontAwesomeIcon icon={faUsers} />
+                <span>Členové</span>
+                <div className="dropdown-content">
+                    <span className="submenu-title">Členové</span>
+                    <Link to="/overview-members">Přehled</Link>
+                    <a href="/">Zalozit noveho clena</a>
+                </div>
+            </div>
+
+            <div className="sidebar-position dropdown">
+                <FontAwesomeIcon icon={faCogs} />
+                <span>Position 4</span>
+            </div>
+
         </div>
     )
 

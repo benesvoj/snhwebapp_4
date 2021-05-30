@@ -20,14 +20,27 @@ body {
   font-style: normal;
 }
 
+h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.16px;
+  color: #091E42;
+}
+
 .app-container {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
   overflow: hidden;
   padding: 0px;
+  text-align: center;
 }
 
 /** TOP NAVIGACE **/
@@ -35,9 +48,8 @@ body {
   width: 100%;
   height: 50px;
   display: flex;
-  position: fixed;
+  position: static;
   background-color: #2a363b;
-  box-shadow: rgb(223 225 230) 0px -1px 0px inset;
   z-index: initial;
 }
 
@@ -66,6 +78,10 @@ body {
   width: 100%;
   display: flex;
   flex: 1 0 auto;
+  overflow: hidden auto;
+  /* width: calc(100% - 48px);
+  height: calc(100vh - 48px); */
+  background-color: #e9e9e9;
 }
 
 /** SIDEBAR **/
@@ -110,37 +126,29 @@ body {
   flex-direction: column;
   width: 100%;
   height: calc(100vh - 48px);
-  overflow: hidden auto;
 }
 
 /*********************************/
-
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
 
 .page {
   width: 100%;
   height: 100%;
 }
 
-.content {
+.content-container {
   width: calc(100% - 50px);
-  margin-left: auto;
   padding: 15px;
   height: 100%;
   word-break: break-word;
 }
 
 .sidebar {
-  position: fixed;
+  position: static;
   top: 0;
   width: 50px;
-  height: 100%;
+  height: calc(100vh - 48px);
   background-color: #2a363b;
   transition: width 0.3s ease;
-  border-right: 1px #4d606e solid;
   padding-top: 15px;
 }
 
@@ -280,4 +288,64 @@ body {
 .submenu-title {
   color: #FFFFFF;
   font-weight: 900;
+}
+
+
+/*************** CONTENT ***************/
+.content-header {
+  height: 56px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px 16px;
+  border-bottom: 1px solid rgba(143, 143, 143, 0.295);
+}
+
+.content-header-title {
+  font-size: 21px;
+  color:rgb(9, 30, 66)
+}
+
+.btn-content-header {
+  margin-left: auto;
+}
+
+.fa-check-circle {
+  color: green;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
+.fa-minus-circle {
+  color: grey;
+}
+
+.table-team-title {
+  text-align: left;
+}
+
+.table-team-logo {
+  width: 30px;
+  /* content: url(../Content/img/svinov.png); */
+  align-content: center;
+}
+
+.table-zone-lg {
+  padding: 0.5rem;
+}
+
+.table td, .table th {
+  padding: .5rem;
+}
+/************* END CONTENT *************/
+
+
+.box-sm {
+  padding: 1rem;
+}
+
+.box-lg {
+  padding: 1rem;
 }

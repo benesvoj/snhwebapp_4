@@ -1,24 +1,28 @@
 import React from "react";
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faTimesCircle,
+  faMinusCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
-import ClubListHeader from "./clubListHeader";
-import TableClubHeader from "./tableClubHeader";
 
-function ClubsOverview(){
-    // const { url } = useRouteMatch();
-    return(
-        <div>
-            <ClubListHeader />
-            <div className="h-100 box-sm bg-light border rounded-3">
-            <h4>Tabulka mala zona</h4>
-                <table className="table table-hover table-striped text-nowrap">
+import TableTeamHeader from "./tableTeamHeader"
+import teamTableExamples from "./teamTableExamples"
+
+function Zone1cl() {
+    return (
+        <div className="table-zone-lg mb-4 bg-light rounded-3">
+        <div className="container-fluid box-lg">
+            <h4>Tabulka dlouha zona</h4>
+            <table className="table table-hover table-striped text-nowrap">
                     <thead>
-                        <TableClubHeader />
+                        <TableTeamHeader />
                     </thead>
                     <tbody>
-                        {clubsListExamples.map((TeamRow) =>
+                        {teamTableExamples.map((TeamRow) =>
                             <tr key={TeamRow.key}>
-                                <th scope="row">{TeamRow.order}</th>
+                                <th scope="row">{TeamRow.id}</th>
                                 <td className="table-team-logo">{TeamRow.img}</td>
                                 <td className="table-team-title">{TeamRow.name}</td>
                                 <td>{TeamRow.matchesCount}</td>
@@ -30,7 +34,7 @@ function ClubsOverview(){
                                 <td>{TeamRow.goalsDiff}</td>
                                 <td>{TeamRow.pointsCount}</td>
                                 <td>
-                                    {/* TODO: predelat do funkce, generuje se ted vzdy stejne */}
+{/* TODO: predelat do funkce, generuje se ted vzdy stejne */}
                                     <FontAwesomeIcon icon={faTimesCircle} size="lg" />
                                     <FontAwesomeIcon icon={faTimesCircle} size="lg" />
                                     <FontAwesomeIcon icon={faMinusCircle} size="lg" />
@@ -41,9 +45,9 @@ function ClubsOverview(){
                         )}
                     </tbody>
                 </table>
-            </div>
-        </div>        
+        </div>
+        </div>
     );
 }
 
-export default ClubsOverview;
+export default Zone1cl;

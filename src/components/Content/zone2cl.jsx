@@ -1,22 +1,26 @@
 import React from "react";
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faTimesCircle,
+  faMinusCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
-import ClubListHeader from "./clubListHeader";
-import TableClubHeader from "./tableClubHeader";
+import TableTeamHeader from "./tableTeamHeader"
+import teamTableExamples from "./teamTableExamples"
 
-function ClubsOverview(){
-    // const { url } = useRouteMatch();
-    return(
-        <div>
-            <ClubListHeader />
+function Zone2cl() {
+
+    return (
+        <div className="col-md-6">
             <div className="h-100 box-sm bg-light border rounded-3">
             <h4>Tabulka mala zona</h4>
                 <table className="table table-hover table-striped text-nowrap">
                     <thead>
-                        <TableClubHeader />
+                        <TableTeamHeader />
                     </thead>
                     <tbody>
-                        {clubsListExamples.map((TeamRow) =>
+                        {teamTableExamples.map((TeamRow) =>
                             <tr key={TeamRow.key}>
                                 <th scope="row">{TeamRow.order}</th>
                                 <td className="table-team-logo">{TeamRow.img}</td>
@@ -42,8 +46,8 @@ function ClubsOverview(){
                     </tbody>
                 </table>
             </div>
-        </div>        
+        </div>
     );
 }
 
-export default ClubsOverview;
+export default Zone2cl;
