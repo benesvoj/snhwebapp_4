@@ -1,14 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faFontAwesomeLogoFull,
-  faMinusCircle,
-  faCheckCircle,
-} from "@fortawesome/free-solid-svg-icons";
-
 import LeaguesListExample from "./List/leaguesListExamples";
-
-
 import TableLeaguesListHeader from "./List/tableLeaguesListHeader";
 
 function LeaguesListBody() {
