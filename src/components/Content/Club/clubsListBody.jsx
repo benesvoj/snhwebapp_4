@@ -7,8 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import clubsListExamples from "./List/clubsListExamples";
-
-
 import TableClubsListHeader from "./List/tableClubsListHeader";
 
 function ClubsListBody() {
