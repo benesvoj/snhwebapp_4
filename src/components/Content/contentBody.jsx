@@ -13,7 +13,7 @@ function ContentBody() {
     return (
         <div className="content-container">
             <Switch>
-                <Route path="/overview-teams"><ClubsOverview /></Route>
+                <Route path="/clubs"><ClubsOverview /></Route>
                 <Route path="/overview-members"><MembersOverview /></Route>
                 <Route path="/overview-leagues"><LeaguesOverview /></Route>
                 <Route path="/">

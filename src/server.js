@@ -9,7 +9,11 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'views'));  
+var cors = require('cors');
+
+app.use(cors());
+
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
@@ -21,16 +25,16 @@ mongoose.connect("mongodb://localhost:27017/snhwebapp", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() =>{
-  console.log('Connection OPEN!')
-})
-.catch(err =>{
-  console.log('Connection FAILED!')
-  console.log(err)
-})
+  .then(() => {
+    console.log('Connection OPEN!')
+  })
+  .catch(err => {
+    console.log('Connection FAILED!')
+    console.log(err)
+  })
 
 
-const clubsSchema = new mongoose.Schema({
+const clubSchema = new mongoose.Schema({
   code: {
     type: String,
     required: true
@@ -41,15 +45,33 @@ const clubsSchema = new mongoose.Schema({
   },
   county: {
     type: String,
-    required: true
+    required: false
   },
   parentSubject: {
     type: String,
-    required: true
+    required: false
   }
 });
 
-const Club = mongoose.model("Club", clubsSchema);
+const Club = mongoose.model("Club", clubSchema);
+
+// const club1 = new Club({
+//   code: "123", name: "TJ Sokol Svinov", county: "Severomoravsky", parentSubject: "COS"
+// });
+
+// const club2 = new Club({
+//   code: "456", name: "SK Studenka", county: "Severomoravsky", parentSubject: "CUS"
+// });
+
+// const defaultClubs = [club1, club2];
+
+// Club.insertMany(defaultClubs, function(err){
+//   if (err){
+//     console.log(err);
+//   } else {
+//     console.log("Succesfully saved default to database.");
+//   }
+// });
 
 app.get("/", function (req, res) {
   res.sendFile("index.html");
@@ -64,6 +86,38 @@ app.get("/overview-teams", function (req, res) {
     });
   });
 })
+
+app.get("/clubs", function (req, res) {
+
+  Club.find({}, function (err, foundClubs) {
+    if (!err) {
+      console.log(foundClubs);
+      res.send(foundClubs);
+    } else {
+      console.log(err);
+    }
+  });
+})
+
+app.post("/clubs", function (req, res) {
+  console.log(req.body.club.clubId);
+  console.log(req.body.club.clubName);
+
+  const newClub = new Club({
+    code: req.body.club.clubId,
+    name: req.body.club.clubName
+  });
+
+  newClub.save(function (err) {
+    if (!err) {
+      res.send("Success");
+    } else {
+      res.send(err);
+    }
+  });
+
+})
+
 
 let port = process.env.PORT;
 if (port === null || port === "") {

@@ -43,7 +43,7 @@ function Sidebar() {
                 <span>Oddíly</span>
                 <div className="dropdown-content">
                     <span className="submenu-title">Oddíly</span>
-                    <Link to="/overview-teams">Přehled</Link>
+                    <Link to="/clubs">Přehled</Link>
                     {/* <a href="/overview-teams">Přehled</a> */}
                     <a href="/">Zalozit novy oddil</a>
                     <a href="/">Oblasti</a>

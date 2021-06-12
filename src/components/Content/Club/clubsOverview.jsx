@@ -1,6 +1,6 @@
 import React from "react";
 import ClubsListHeader from "./clubsListHeader";
-import ClubsListBody from "./clubsListBody";
+import {ClubsListBody} from "./clubsListBody";
 
 function ClubsOverview(){
     return(
